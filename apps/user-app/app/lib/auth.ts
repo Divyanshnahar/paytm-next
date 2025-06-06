@@ -5,9 +5,9 @@ import bcrypt from "bcrypt";
 export const authOptions = {
     providers: [
       CredentialsProvider({
-          name: 'Phone Number',
+          name: 'Credentials',
           credentials: {
-            phone: { label: "Phone number ", type: "text", placeholder: "1234567890", required: true },
+            phone: { label: "Phone number", type: "text", placeholder: "1231231231", required: true },
             password: { label: "Password", type: "password", required: true }
           },
           // TODO: User credentials type from next-aut
