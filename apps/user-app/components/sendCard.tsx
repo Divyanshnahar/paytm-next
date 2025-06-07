@@ -4,7 +4,7 @@ import { Card } from "@repo/ui/card";
 import { Center } from "@repo/ui/center";
 import { TextInput } from "@repo/ui/textinput";
 import { useState } from "react";
-import { TransferPtp } from "../app/lib/actions/transferptp";
+import { p2pTransfer } from "../app/lib/actions/transferptp";
 
 export function SendCard() {
     const [number, setNumber] = useState("");
@@ -26,12 +26,7 @@ export function SendCard() {
                                 alert("Please enter both number and amount");
                                 return;
                             }
-                            const response = await TransferPtp(Number(number), Number(amount))
-                            if (response.success) {
-                                alert(response.message);
-                            } else {
-                                alert("Transaction failed: " + response.message);
-                            }   
+                            const response = await p2pTransfer(number, Number(amount)*100)
                             
                         }}>Send</Button>
                     </div>
