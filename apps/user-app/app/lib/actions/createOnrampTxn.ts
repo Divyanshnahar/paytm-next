@@ -22,4 +22,22 @@ export async function CreateOnRampTransaction(amount: number, provider: string) 
             token: token
         }
     });   
+    // Send request to webhook after transaction is created
+    const response = await fetch("http://localhost:3003/hdfcWebhook", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            token: token,
+            user_identifier: userId,
+            amount: amount
+        })
+    });
+
+    if (response.ok) {
+        return { success: true, message: "Transaction created successfully!" };
+    } else {
+        return { success: false, message: "Failed to create transaction." };
+    }
 }

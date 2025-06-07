@@ -12,6 +12,7 @@ export default function Layout({
                 <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
                 <SidebarItem href={"/transfer"} icon={<TransferIcon />} title="Transfer" />
                 <SidebarItem href={"/transactions"} icon={<TransactionsIcon />} title="Transactions" />
+                <SidebarItem href={"/ptp"} icon={<TransferIcon />} title="PTP" />
             </div>
         </div>
             {children}
@@ -37,3 +38,4 @@ function TransactionsIcon() {
   </svg>
   
 }
+
